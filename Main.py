@@ -1,7 +1,3 @@
-
-# Class 1: Event            -> stores the data of one event
-# Class 2: AcademicCalendar -> manages the list of events and the file
-
 import datetime
 
 
@@ -14,7 +10,6 @@ def get_day(date_text):
         return None
 
 
-# ---------------------- CLASS 1 : Event ----------------------
 class Event:
     def __init__(self, date, event_type, name, description):
         self.date = date
@@ -46,7 +41,6 @@ class Event:
         print("-" * 45)
 
 
-# ------------------ CLASS 2 : AcademicCalendar ------------------
 class AcademicCalendar:
     def __init__(self, file_name):
         self.file_name = file_name
@@ -55,7 +49,6 @@ class AcademicCalendar:
                             "Assignment", "Result Declaration", "Registration",
                             "College Event"]
 
-    # ---------- file handling ----------
     def add_default_events(self):
         # sample records used when the file does not exist
         self.events.append(Event("01-08-2026", "Registration", "Semester Registration", "Last date for course registration"))
@@ -97,7 +90,6 @@ class AcademicCalendar:
             self.events.sort(key=Event.date_value)
             self.save_data()
 
-    # ---------- helper methods ----------
     def read_date(self, message):
         # keeps asking until the user enters a valid date
         while True:
@@ -153,7 +145,6 @@ class AcademicCalendar:
             except ValueError:
                 print("Invalid input! Please enter a number.")
 
-    # ---------- main features ----------
     def view_calendar(self):
         print("\n----- ACADEMIC CALENDAR -----")
         if len(self.events) == 0:
@@ -268,7 +259,6 @@ class AcademicCalendar:
         print("Total events:", len(self.events))
 
 
-# ---------------------- MAIN PROGRAM ----------------------
 def show_menu():
     print("\n==========================================")
     print("   VIT BHOPAL ACADEMIC CALENDAR SYSTEM")
